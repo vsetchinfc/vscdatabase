@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "VSCDatabase"
+		},
+		{
+			"path": "VSCDatabase.Tests"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
