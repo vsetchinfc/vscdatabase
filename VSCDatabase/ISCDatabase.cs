@@ -7,7 +7,8 @@ namespace VSC.Data
     {
         None = 0,
         MySql = 1,
-        Postgres = 2
+        Postgres = 2,
+        SqlServer = 3
     };
 
     public interface ISCDatabase

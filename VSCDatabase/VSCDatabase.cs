@@ -28,6 +28,11 @@ namespace VSC.Data
                     db = new MySqlDatabase(serverName, username, password, databaseName);
                 }
                 break;
+                case DBType.SqlServer:
+                {
+                    db = new SqlServerDatabase(serverName, username, password, databaseName);
+                }
+                break;
                 default:
                 {
                     throw new NotSupportedDatabaseException();
@@ -56,6 +61,11 @@ namespace VSC.Data
                 case DBType.MySql:
                 {
                     db = new MySqlDatabase(connectionString);
+                }
+                break;
+                case DBType.SqlServer:
+                {
+                    db = new SqlServerDatabase(connectionString);
                 }
                 break;
                 default:
