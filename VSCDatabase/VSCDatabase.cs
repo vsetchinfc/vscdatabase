@@ -37,7 +37,6 @@ namespace VSC.Data
                 {
                     throw new NotSupportedDatabaseException();
                 }
-                break;
             }
 
             return db;
@@ -72,7 +71,6 @@ namespace VSC.Data
                 {
                     throw new NotSupportedDatabaseException();
                 }
-                break;
             }
 
             return db;
