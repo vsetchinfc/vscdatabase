@@ -10,6 +10,7 @@
     <PackageReference Include="nlog" Version="4.5.9" />
     <PackageReference Include="npgsql" Version="4.0.2" />
     <PackageReference Include="system.data.sqlclient" Version="4.5.1" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
   </ItemGroup>
 
 </Project>

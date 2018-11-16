@@ -1,3 +1,4 @@
+using System;
 using System.Data;
 
 namespace VSC.Data
@@ -75,6 +76,11 @@ namespace VSC.Data
 
             return db;
         }
+
+        private static ISCDatabase GetSCInMemoryDatabase()
+        {
+            return new SQLiteInMemoryDatabase();
+        }
         #endregion GetSCDatabase
 
         #region GetIDBConnection
@@ -99,6 +105,13 @@ namespace VSC.Data
         )
         {
             ISCDatabase db = VSCDatabase.GetSCDatabase(databaseType, connectionString);
+
+            return db.GetDBConnection();
+        }
+
+        public static IDbConnection GetInMemoryIDBConnection()
+        {
+            ISCDatabase db = VSCDatabase.GetSCInMemoryDatabase();
 
             return db.GetDBConnection();
         }
