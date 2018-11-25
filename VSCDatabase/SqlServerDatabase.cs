@@ -1,14 +1,15 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 
 namespace VSC.Data
 {
     public class SqlServerDatabase : ISCDatabase
     {
-        private string _connectionString = string.Empty;
+        public string ConnectionString { get; private set; } = string.Empty;
 
         public SqlServerDatabase(string connectionString)
         {
-            _connectionString = connectionString;
+            this.ConnectionString = connectionString;
         }
 
         public SqlServerDatabase
@@ -27,12 +28,32 @@ namespace VSC.Data
                 InitialCatalog = databaseName
             };
 
-            _connectionString = connectionStringBuilder.ConnectionString;
+            this.ConnectionString = connectionStringBuilder.ConnectionString;
         }
 
         public IDbConnection GetDBConnection()
         {
-            return new System.Data.SqlClient.SqlConnection(_connectionString);
+            return new System.Data.SqlClient.SqlConnection(this.ConnectionString);
+        }
+
+        public bool CreateDatabase()
+        {
+            return true;
+        }
+
+        public bool DeleteDatabase()
+        {
+            return true;
+        }
+
+        public List<string> GetDatabases()
+        {
+            return new List<string>();
+        }
+
+        public bool DatabaseExists()
+        {
+            return true;
         }
     }
 }

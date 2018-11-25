@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 using Npgsql;
 
@@ -5,11 +6,11 @@ namespace VSC.Data
 {
     internal class PostgresDatabase : ISCDatabase
     {
-        private string _connectionString = string.Empty;
+        public string ConnectionString { get; private set; } = string.Empty;
 
         public PostgresDatabase(string connectionString)
         {
-            _connectionString = connectionString;
+            this.ConnectionString = connectionString;
         }
 
         public PostgresDatabase
@@ -31,7 +32,27 @@ namespace VSC.Data
 
         public IDbConnection GetDBConnection()
         {
-            return new NpgsqlConnection(_connectionString);
+            return new NpgsqlConnection(this.ConnectionString);
+        }
+
+        public bool CreateDatabase()
+        {
+            return true;
+        }
+
+        public bool DeleteDatabase()
+        {
+            return true;
+        }
+
+        public List<string> GetDatabases()
+        {
+            return new List<string>();
+        }
+
+        public bool DatabaseExists()
+        {
+            return true;
         }
     }
 }

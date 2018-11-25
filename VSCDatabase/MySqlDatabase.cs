@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
@@ -5,11 +6,11 @@ namespace VSC.Data
 {
     internal class MySqlDatabase : ISCDatabase
     {
-        private string _connectionString = string.Empty;
+        public string ConnectionString { get; private set; } = string.Empty;
 
         public MySqlDatabase(string connectionString)
         {
-            _connectionString = connectionString;
+            this.ConnectionString = connectionString;
         }
 
         public MySqlDatabase
@@ -28,12 +29,32 @@ namespace VSC.Data
                 Database = databaseName
             };
 
-            _connectionString = mySqlConnectionStringBuilder.ToString();
+            this.ConnectionString = mySqlConnectionStringBuilder.ToString();
         }
 
         public IDbConnection GetDBConnection()
         {
-            return new MySqlConnection(_connectionString);
+            return new MySqlConnection(this.ConnectionString);
+        }
+
+        public bool CreateDatabase()
+        {
+            return true;
+        }
+
+        public bool DeleteDatabase()
+        {
+            return true;
+        }
+
+        public List<string> GetDatabases()
+        {
+            return new List<string>();
+        }
+
+        public bool DatabaseExists()
+        {
+            return true;
         }
     }
 }
