@@ -77,7 +77,7 @@ namespace VSC.Data
             return db;
         }
 
-        private static ISCDatabase GetSCInMemoryDatabase()
+        public static ISCDatabase GetSCInMemoryDatabase()
         {
             return new SQLiteInMemoryDatabase();
         }
