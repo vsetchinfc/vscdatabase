@@ -1,5 +1,7 @@
 using System;
 using System.Data;
+using Microsoft.Extensions.Configuration;
+using VSC.Data.Settings;
 
 namespace VSC.Data
 {
@@ -81,6 +83,18 @@ namespace VSC.Data
         {
             return new SQLiteInMemoryDatabase();
         }
+
+        public static ISCDatabase GetSCDatabase(IConfiguration configuration)
+        {
+            return VSCDatabase.GetSCDatabase
+                (
+                    DatabaseSettingsReader.ReadDBType(configuration),
+                    DatabaseSettingsReader.ReadServerName(configuration),
+                    DatabaseSettingsReader.ReadUsername(configuration), 
+                    DatabaseSettingsReader.ReadPassword(configuration), 
+                    DatabaseSettingsReader.ReadDatabase(configuration)
+                );
+        }
         #endregion GetSCDatabase
 
         #region GetIDBConnection
@@ -114,6 +128,18 @@ namespace VSC.Data
             ISCDatabase db = VSCDatabase.GetSCInMemoryDatabase();
 
             return db.GetDBConnection();
+        }
+
+        public static IDbConnection GetIDbConnection(IConfiguration configuration)
+        {
+            return VSCDatabase.GetIDBConnection
+                (
+                    DatabaseSettingsReader.ReadDBType(configuration),
+                    DatabaseSettingsReader.ReadServerName(configuration),
+                    DatabaseSettingsReader.ReadUsername(configuration), 
+                    DatabaseSettingsReader.ReadPassword(configuration), 
+                    DatabaseSettingsReader.ReadDatabase(configuration)
+                );
         }
         #endregion GetIDBConnection
     }
