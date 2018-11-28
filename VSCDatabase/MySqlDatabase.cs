@@ -6,6 +6,8 @@ namespace VSC.Data
 {
     internal class MySqlDatabase : ISCDatabase
     {
+        public string GeneratorId { get; } = "MySql";
+        
         public string ConnectionString { get; private set; } = string.Empty;
 
         public MySqlDatabase(string connectionString)

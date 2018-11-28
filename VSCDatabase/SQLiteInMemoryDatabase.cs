@@ -6,6 +6,8 @@ namespace VSC.Data
 {
     internal class SQLiteInMemoryDatabase : ISCDatabase
     {
+        public string GeneratorId { get; } = "Sqlite";
+
         public string ConnectionString { get; private set; } = "Data Source=:memory:;Version=3;New=True;";
         
         public IDbConnection GetDBConnection()

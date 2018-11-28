@@ -5,6 +5,8 @@ namespace VSC.Data
 {
     public class SqlServerDatabase : ISCDatabase
     {
+        public string GeneratorId { get; } = "SqlServer";
+
         public string ConnectionString { get; private set; } = string.Empty;
 
         public SqlServerDatabase(string connectionString)

@@ -6,6 +6,8 @@ namespace VSC.Data
 {
     internal class PostgresDatabase : ISCDatabase
     {
+        public string GeneratorId { get; } = "Postgres";
+
         public string ConnectionString { get; private set; } = string.Empty;
 
         public PostgresDatabase(string connectionString)

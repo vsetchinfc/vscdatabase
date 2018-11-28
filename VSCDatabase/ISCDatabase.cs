@@ -14,6 +14,11 @@ namespace VSC.Data
 
     public interface ISCDatabase
     {
+        /// <summary>
+        /// Generator Id for use with Fluent Migrator 
+        /// </summary>
+        /// <value>string</value>
+        string GeneratorId { get; }
         IDbConnection GetDBConnection();
 
         string ConnectionString { get; }
