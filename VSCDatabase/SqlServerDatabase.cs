@@ -3,7 +3,7 @@ using System.Data;
 
 namespace VSC.Data
 {
-    public class SqlServerDatabase : ISCDatabase
+    internal class SqlServerDatabase : ISCDatabase
     {
         public string GeneratorId { get; } = "SqlServer";
 

@@ -11,7 +11,7 @@ namespace VSC.Data
     {
         public string GeneratorId { get; } = "Sqlite";
 
-        public string ConnectionString { get; private set; } = "FullUri=file::memory:?cache=shared"; // string.Format("Data Source={0}", TestDBName);
+        public string ConnectionString { get; private set; } = "FullUri=file::memory:?cache=shared";
         
         public IDbConnection GetDBConnection()
         {
