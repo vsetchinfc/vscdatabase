@@ -30,6 +30,8 @@ namespace VSC.Data
                 Password = password,
                 Database = databaseName
             };
+
+            this.ConnectionString = postgresConnectionStringBuilder.ConnectionString;
         }
 
         public IDbConnection GetDBConnection()
